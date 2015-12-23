@@ -30,7 +30,11 @@ def get_value(number):
 
     # Useless of course but returning an int
     if number == 3:
-        return 8888
+        p=subprocess.Popen(['powershell',
+        "Get-PSDrive C | Select-Object Free"],
+        stdout=subprocess.PIPE)                  # Zorg ervoor dat je de STDOUT kan opvragen.
+        output = p.stdout.read()                 # De stdout
+        return output
 
     # Example in which a PowerShell script is used. The STDOUT is used to pass results back to python.
     # Exporting with export-csv and reading the CSV using Python is also possible of course.
@@ -45,7 +49,7 @@ def get_value(number):
     # Example of sing a PowerShell oneliner. Useful for simple PowerShell commands.
     if number == 5:
         p=subprocess.Popen(['powershell',
-            "get-service | measure-object | select -expandproperty count"],
+            "Get-PSDrive C | Select-Object Used,Free"],
         stdout=subprocess.PIPE)                  # Zorg ervoor dat je de STDOUT kan opvragen.
         output = p.stdout.read()                 # De stdout
         return output
