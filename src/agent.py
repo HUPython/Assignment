@@ -4,6 +4,7 @@ Portable Python installed in c:\P2.7.6.1 and agent script in c:\scripts\agent.py
 Open the firewall if needed and start this agent:
 <cmd>
 c:\\P2\App\python.exe c:\scripts\agent.py
+Dit is een test gemaakt door Hendrik-Jan Willem Hofland die dit ontzettend leuk vind
 """
 
 from pysimplesoap.server import SoapDispatcher, SOAPHandler
